@@ -109,3 +109,67 @@ flowchart TD
     E2 --> F1
 
     F1 --> F2
+```
+
+---
+
+## 💥 Fault Injection Types
+
+### 🌐 Network Faults
+- Artificial latency injection
+- Packet loss simulation
+- Connectivity degradation scenarios
+
+### 🔁 Node Faults
+- Controlled validator service restarts
+- Recovery and resync behavior validation
+
+### 🔥 Resource Pressure
+- CPU saturation
+- Disk / IO contention
+- Combined stress scenarios via `stress-ng`
+
+---
+
+## 📊 Metrics Collected
+
+📈 Execution duration  
+🔗 Peer count before / after faults  
+📡 gRPC reachability  
+⛓️ Block height visibility  
+🔄 Syncing status  
+⏱️ Recovery behavior indicators  
+
+These signals allow **direct correlation** between injected failures and actual protocol-level behavior.
+
+---
+
+## 🛡️ Safety Model
+
+Safety is enforced at the framework level:
+
+- 🧯 `DRY_RUN=1` enabled by default  
+- 🚫 Mainnet → automatic safe-mode  
+- 🔄 Explicit rollback for all faults  
+- ⚠️ No cascading or parallel faults by default  
+
+This makes the suite suitable for **real infrastructure testing** without unnecessary risk.
+
+---
+
+## 🧪 Example Scenario
+
+```yaml
+scenario: cpu_io_pressure
+network: testnet
+
+faults:
+  - type: node.resource_stress
+    duration: 30
+    params:
+      cpu: 4
+      io: 2
+      timeout: 30
+```
+
+---
