@@ -173,3 +173,47 @@ faults:
 ```
 
 ---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/astrosynx/chaos-suite
+cd astrosynx-chaos-suite
+pip install -r requirements.txt
+```
+
+### System dependencies
+
+- `tc`
+- `stress-ng`
+- `systemd`
+
+## ▶️ Usage
+
+```bash
+python orchestrator/chaosctl.py examples/network_latency.yaml
+```
+
+Dry-run mode is applied automatically unless explicitly disabled.
+
+---
+
+## 🧩 Typical Use Cases
+
+- Validator resilience testing  
+- Upgrade & restart validation  
+- Monitoring and alerting verification  
+- Infrastructure comparison  
+- Operational readiness assessments  
+
+---
+
+## 🛣️ Roadmap
+
+🔜 MTTR timelines & recovery graphs  
+🔜 Missed block correlation  
+🔜 Peer churn analytics  
+🔜 Mainnet-safe fault profiles  
+🔜 Cross-network support  
+
+The framework is designed to **scale beyond Story** and be adaptable to other blockchain networks.
